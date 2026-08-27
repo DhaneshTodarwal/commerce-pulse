@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a1017" />
+    <meta name="description" content="CommercePulse — a decision-ready retail analytics dashboard by Dhanesh Todarwal." />
+    <title>CommercePulse — Retail Analytics Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="CommercePulse home"><span class="brand-mark">CP</span><span><b>COMMERCE</b><em>PULSE</em></span></a>
+        <div class="topbar-meta"><span class="live-dot"></span><span>PYTHON PIPELINE / FY 2025 SNAPSHOT</span></div>
+        <a class="topbar-link" href="#methodology">Methodology <span>↘</span></a>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">DECISION-READY ANALYTICS / PORTFOLIO BUILD 09</p>
+            <h1 id="hero-title">See where the business is <em>winning.</em></h1>
+            <p class="hero-lede">A focused retail dashboard that turns orders into a clearer conversation about revenue, margin, product mix, and what deserves the next decision.</p>
+            <div class="hero-proof"><span>DATA CLEANING</span><i></i><span>FEATURE ENGINEERING</span><i></i><span>BUSINESS STORYTELLING</span></div>
+          </div>
+          <div class="hero-orbit" aria-hidden="true"><div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><div class="orbit-core"><strong>09</strong><span>PUBLIC<br />BUILD</span></div><span class="orbit-label label-one">REVENUE / MARGIN</span><span class="orbit-label label-two">REGION / MIX</span></div>
+        </section>
+
+        <section class="dashboard" aria-label="CommercePulse analytics dashboard">
+          <div class="section-bar"><div><span class="section-kicker">01 / CONTROL ROOM</span><h2>Change the lens.</h2></div><p>Every control recomputes the story from the underlying order rows.</p></div>
+
+          <div class="control-panel">
+            <div class="control-block"><span class="control-label">REGION</span><div class="filter-group" id="region-filters" role="group" aria-label="Filter by region"></div></div>
+            <label class="control-block category-control"><span class="control-label">CATEGORY</span><select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select></label>
+            <div class="control-block range-control"><div class="range-heading"><span class="control-label">PERIOD</span><output id="period-output" for="period-filter">JAN — DEC</output></div><input id="period-filter" type="range" min="1" max="12" value="12" aria-label="End month" /></div>
+            <button class="reset-button" id="reset-filters" type="button">Reset view ↺</button>
+          </div>
+
+          <div class="kpi-grid" id="kpi-grid" aria-live="polite"></div>
+
+          <div class="chart-grid">
+            <article class="panel trend-panel"><div class="panel-heading"><div><span class="panel-label">REVENUE TRAJECTORY</span><h3>Momentum over time</h3></div><span class="panel-note" id="trend-note">ALL SEGMENTS</span></div><div class="chart-wrap"><svg id="trend-chart" viewBox="0 0 760 300" role="img" aria-label="Revenue over time"></svg></div></article>
+            <article class="panel category-panel"><div class="panel-heading"><div><span class="panel-label">PRODUCT MIX</span><h3>Who is carrying the result?</h3></div><span class="panel-note">BY REVENUE</span></div><div id="category-bars" class="category-bars"></div></article>
+          </div>
+
+          <div class="lower-grid">
+            <article class="panel region-panel"><div class="panel-heading"><div><span class="panel-label">REGIONAL SHARE</span><h3>Where it happens</h3></div><span class="panel-note">REVENUE MIX</span></div><div class="region-chart"><div id="region-donut" class="donut" role="img" aria-label="Revenue share by region"><span id="donut-total">₹0</span><small>REVENUE</small></div><div id="region-legend" class="region-legend"></div></div></article>
+            <article class="panel table-panel"><div class="panel-heading"><div><span class="panel-label">PERFORMANCE TABLE</span><h3>Strongest combinations</h3></div><span class="panel-note">MARGIN ADJUSTED</span></div><div class="table-scroll"><table><thead><tr><th>SEGMENT</th><th>REVENUE</th><th>MARGIN</th><th>RETURNS</th></tr></thead><tbody id="performance-table"></tbody></table></div></article>
+          </div>
+
+          <article class="insight-panel" id="methodology"><div class="insight-marker">→</div><div class="insight-content"><span class="panel-label">PYTHON-GENERATED READOUT</span><h2 id="insight-title">Loading the business story...</h2><p id="insight-body">The dashboard is calculating the current filtered view.</p><div class="insight-tags"><span>DATASET: DEMO / FY 2025</span><span>ROWS: <b id="row-count">—</b></span><span>PIPELINE: PYTHON + PANDAS</span></div></div><div class="method-note"><span class="panel-label">WHY THIS EXISTS</span><p>Good analytics is not a screenshot of charts. It is a repeatable path from clean data to a decision someone can explain.</p><a href="https://github.com/DhaneshTodarwal/commerce-pulse" target="_blank" rel="noreferrer">Read the source ↗</a></div></article>
+        </section>
+      </main>
+
+      <footer class="footer"><div><span class="footer-mark">CP</span><span>BUILT BY DHANESH TODARWAL</span></div><span>COMMERCEPULSE / 2026</span><a href="https://dhanesh-todarwal-portfolio.yogi-workspace-in.chatgpt.site/" target="_blank" rel="noreferrer">Back to portfolio ↗</a></footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
