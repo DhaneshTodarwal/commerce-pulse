@@ -7,6 +7,8 @@ The project is deliberately transparent: the dashboard uses a generated demo sna
 ## What it demonstrates
 
 - Python and pandas data generation, cleaning, feature engineering, and aggregation
+- A reviewable SQL analytical contract in `sql/commercepulse.sql`
+- A publish-time data-quality gate in `scripts/validate_snapshot.py`
 - A reusable JSON snapshot for a fast static dashboard
 - Interactive region, category, and period filters
 - Revenue trend, category mix, regional share, margin, returns, and AOV analysis
@@ -29,6 +31,12 @@ Open `http://localhost:8000`.
 2. The script normalizes numeric columns, derives gross profit and gross margin, and writes `data/orders.csv`.
 3. It aggregates the rows into `data/metrics.json` for the browser.
 4. The dashboard recalculates its views in the browser as filters change.
+
+## Analytics engineering layer
+
+The dashboard remains intentionally static for GitHub Pages, but the repository now includes a SQL contract for the same business questions. `sql/commercepulse.sql` documents the orders schema, executive KPI readout, category performance, regional/channel mix, and monthly trend query. The GitHub Actions workflow runs `scripts/validate_snapshot.py` after rebuilding the snapshot so duplicate keys, null measures, invalid margins, and headline mismatches fail before publication.
+
+The next production step would be replacing the fictional snapshot with an approved warehouse or API source, adding source freshness checks, and publishing the same metrics through a governed BI layer. The current public numbers remain demonstration data.
 
 ## Project story
 
